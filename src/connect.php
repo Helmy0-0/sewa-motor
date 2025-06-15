@@ -8,8 +8,8 @@ $username = $env['DB_USER'];
 $password = $env['DB_PASSWORD'];
 $database = $env['DB_NAME'];
 
-// Buat docker
-$conn = new mysqli($host, $username, $password, $database);
+// // Buat docker
+// $conn = new mysqli($host, $username, $password, $database);
 
 //buat local
 //$conn = new mysqli("localhost", "root", "", "projekpbw");

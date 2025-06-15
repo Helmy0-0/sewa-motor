@@ -1,6 +1,6 @@
 <?php
 // Baca file .env sebagai array
-$env = parse_ini_file(__DIR__ . '/../.env');
+$env = parse_ini_file(__DIR__ . '/.env');
 
 // Ambil data dari env
 $host = $env['DB_HOST'];
@@ -9,7 +9,7 @@ $password = $env['DB_PASSWORD'];
 $database = $env['DB_NAME'];
 
 // // Buat docker
-// $conn = new mysqli($host, $username, $password, $database);
+$conn = new mysqli($host, $username, $password, $database);
 
 //buat local
 //$conn = new mysqli("localhost", "root", "", "projekpbw");

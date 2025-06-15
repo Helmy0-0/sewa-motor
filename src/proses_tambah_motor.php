@@ -1,6 +1,6 @@
 <?php
 include 'connect.php';
-$env = parse_ini_file(__DIR__ . '/../.env');
+$env = parse_ini_file(__DIR__ . '/.env');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nama_motor = $_POST['nama_motor'] ?? '';

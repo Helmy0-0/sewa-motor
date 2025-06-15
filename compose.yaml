@@ -1,11 +1,12 @@
 
 services:
   php:
-    image: php:8.2-fpm
+    build: .
     container_name: php
     volumes:
       - ./src:/var/www/html
-
+    depends_on:
+      - mysql
   nginx:
     image: nginx:latest
     container_name: nginx
@@ -22,7 +23,7 @@ services:
       dockerfile: db.dockerfile
     image: mymysql:8.0
     container_name: mysql
-    env_file: .env
+    env_file: ./src/.env
     volumes:
       - mysql_data:/var/lib/mysql  
     ports:

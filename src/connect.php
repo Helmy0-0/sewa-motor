@@ -9,10 +9,10 @@ $password = $env['DB_PASSWORD'];
 $database = $env['DB_NAME'];
 
 // // Buat docker
-$conn = new mysqli($host, $username, $password, $database);
+// $conn = new mysqli($host, $username, $password, $database);
 
 //buat local
-//$conn = new mysqli("localhost", "root", "", "projekpbw");
+$conn = new mysqli("localhost", "root", "", "projekpbw");
 
 
 // Cek koneksi

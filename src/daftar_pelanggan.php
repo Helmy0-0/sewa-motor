@@ -1,5 +1,6 @@
 <?php
 include 'connect.php';
+include 'nav.php';
 
 $search_nama = $_GET['nama'] ?? '';
 $query = "SELECT * FROM pelanggan WHERE nama LIKE ?";

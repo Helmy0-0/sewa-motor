@@ -6,9 +6,10 @@ if (isset($_SESSION['username'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-<head><title>Login</title></head>
+<!DOCTYPE ht`ml>
+<html> 
+<head>
+    <title>Login</title></head>
 <body>
     <h2>Login</h2>
     <form action="proses_login.php" method="POST">

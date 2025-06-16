@@ -1,6 +1,6 @@
 <?php
 include 'connect.php';
-$env = parse_ini_file(__DIR__ . '/../.env');
+$env = parse_ini_file(__DIR__ . '/.env');
 
 
 $id_motor = isset($_POST['id_motor']) ? intval($_POST['id_motor']) : 0;

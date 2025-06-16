@@ -11,11 +11,19 @@ if (!isset($_SESSION['username'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Utama</title>
+    <title>Beranda Sewa Motor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Welcome, <?= $_SESSION['username']; ?>!</h1>
-    <p>Selamat datang di Aplikasi Sewa Motor.</p>
-    <a href="logout.php">Logout</a>
+
+    <?php include 'nav.php'; ?>
+
+    <div class="container mt-5">
+        <h1>Welcome, <?= $_SESSION['username']; ?>!</h1>
+        <h1 class="text-center">Selamat Datang di Sistem Sewa Motor</h1>
+        <p class="text-center">disini bakal ada iklan</p>
+        <a href="logout.php">Logout</a>
+    </div>
+
 </body>
 </html>

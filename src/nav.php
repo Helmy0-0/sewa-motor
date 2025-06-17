@@ -20,6 +20,9 @@
                     <a class="nav-link" href="lihat_transaksi.php">Data Transaksi</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="tambah_motor.php">Tambah Motor</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="logout.php">Logout</a>
                 </li>
             </ul>

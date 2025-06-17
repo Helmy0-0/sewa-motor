@@ -25,17 +25,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
            $stmt->close();
 
 
-           if ($status == 'tidak tersedia') {
+           if ($status == 'Tidak Tersedia') {
                throw new Exception("Motor ID $id_motor tidak tersedia.");
            }
 
            $stmt = $conn->prepare("INSERT INTO detailpinjam (id_pinjaman, id_motor, status, hargapinjam) VALUES (?, ?, ?, ?)");
-           $stmt->bind_param("iied", $id_pinjaman, $id_motor, $status, $hargapinjam);
+           $stmt->bind_param("iiid", $id_pinjaman, $id_motor, $status, $hargapinjam);
            $stmt->execute();
            
            $harga += $hargapinjam;
 
-           $stmt = $conn->prepare("UPDATE motor SET 'status' = 'Tidak Tersedia' WHERE id_motor = ?");
+           $stmt = $conn->prepare("UPDATE motor SET status = 'Tidak Tersedia' WHERE id_motor = ?");
            $stmt->bind_param("i", $id_motor);
            $stmt->execute();
        }

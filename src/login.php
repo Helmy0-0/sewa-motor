@@ -10,12 +10,19 @@ if (isset($_SESSION['username'])) {
 <html> 
 <head>
     <title>Login</title></head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <body>
     <h2>Login</h2>
     <form action="proses_login.php" method="POST">
-        Username: <input type="text" name="username" required><br>
-        Password: <input type="password" name="password" required><br>
-        <button type="submit">Login</button>
+        <div class="mb-3">
+            <label>Username:</label> 
+            <input type="text" name="username" class="form-control" required><br>
+        </div>
+        <div class="mb-3">
+            <label>Password:</label>
+            <input type="password" name="password" class="form-control" required><br>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
     </form>
 </body>
-</html>
+</html>   

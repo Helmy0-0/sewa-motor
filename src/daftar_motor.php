@@ -34,7 +34,7 @@ include 'nav.php';
 <div class="container mt-4">
     <div class="card shadow-sm">
         <div class="card-body">
-            <h3 class="card-title mb-4">Daftar Motor</h3>
+            <h3 class="card-title mb-4">Data Motor</h3>
 
             <!-- Tombol Tambah -->
             <div class="d-flex justify-content-end mb-3">

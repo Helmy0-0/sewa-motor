@@ -8,12 +8,8 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="daftar_motor.php">Daftar Motor</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="tambah_motor.php">Tambah Motor</a>
-                </li>
+
+
                 <li class="nav-item">
                     <a class="nav-link" href="daftar_pelanggan.php">Data Pelanggan</a>
                 </li>

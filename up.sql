@@ -45,5 +45,4 @@ CREATE TABLE pengguna (
   password varchar(100) NOT NULL
 );
 
--- Insert default user
 INSERT INTO pengguna (username, password) VALUES ('DB_USER', 'DB_PASSWORD');

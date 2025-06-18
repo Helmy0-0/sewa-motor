@@ -22,8 +22,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="tambah_motor.php">Tambah Motor</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="logout.php">Logout</a>
+                <li class="nav-item-danger">
+                    <a class="nav-link text-danger" href="logout.php">Logout</a>
                 </li>
             </ul>
         </div>

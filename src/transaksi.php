@@ -17,7 +17,7 @@ $pelangganr = $conn->query("SELECT id_pelanggan, nama FROM pelanggan");
    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
-<div class="container mt-4">
+<div class="container mt-4; card shadow p-4; card-body; p-5">
    <h2>Buat Pinjaman</h2>
    <?php if (isset($_GET['message'])): ?>
        <div class="alert alert-info"><?= htmlspecialchars($_GET['message']) ?></div>

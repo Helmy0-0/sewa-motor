@@ -1,5 +1,6 @@
 <?php
 include 'connect.php'; 
+include 'nav.php';
 
 
 $query = "
@@ -21,10 +22,8 @@ $result = $conn->query($query);
    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
-   <?php include 'nav.php' ?>
-   <div class="container mt-4">
+   <div class="container mt-4; card shadow p-4; card-body; p-5">
        <h2>Data Transaksi</h2>
-
        <table class="table table-striped">
            <thead>
                <tr>

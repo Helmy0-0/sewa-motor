@@ -2,7 +2,7 @@
 include 'connect.php';
 include 'nav.php';
 
-$motorr = $conn->query("SELECT id_motor, nama_motor FROM motor");
+$motorr = $conn->query("SELECT id_motor, nama_motor FROM motor WHERE status = 'Tersedia'");
 $pelangganr = $conn->query("SELECT id_pelanggan, nama FROM pelanggan");
 ?>
 

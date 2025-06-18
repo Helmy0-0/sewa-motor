@@ -74,6 +74,7 @@ include 'nav.php';
                             <th>Tipe</th>
                             <th>Harga</th>
                             <th>Gambar</th>
+                            <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -102,6 +103,9 @@ include 'nav.php';
                                            onclick="return confirm('Yakin ingin menghapus data ini?')">
                                             <i class="bi bi-trash"></i> Hapus
                                         </a>
+                                    </td>
+                                    <td>
+                                        <?php echo htmlspecialchars($row['status']) ?>
                                     </td>
                                 </tr>
                             <?php endwhile; ?>

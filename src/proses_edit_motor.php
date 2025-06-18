@@ -22,6 +22,7 @@ $old = $result->fetch_assoc();
 $nama_motor = $_POST['nama_motor'] ?? '';
 $merek = $_POST['merek'] ?? '';
 $tipe = $_POST['tipe'] ?? '';
+$status = $_POST['status'] ?? '';
 $harga = ($_POST['harga'] === '' || !isset($_POST['harga']))
     ? $old['harga']
     : floatval($_POST['harga']);
@@ -70,16 +71,17 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
 //upload ke db
 $update = $conn->prepare(
     "UPDATE motor
-       SET nama_motor = ?, merek = ?, tipe = ?, harga = ?, gambar = ?
+       SET nama_motor = ?, merek = ?, tipe = ?, harga = ?, gambar = ?, status = ?
      WHERE id_motor = ?"
 );
 $update->bind_param(
-    "sssdsi",
+    "sssdssi",
     $nama_motor,
     $merek,
     $tipe,
     $harga,
     $gambarUrl,
+    $status,
     $id_motor
 );
 

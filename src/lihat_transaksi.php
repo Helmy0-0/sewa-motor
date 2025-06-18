@@ -16,14 +16,14 @@ $result = $conn->query($query);
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Daftar Pinjaman</title>
+   <title>Data Transaksi</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
    <?php include 'nav.php' ?>
    <div class="container mt-4">
-       <h2>Daftar Pinjaman</h2>
+       <h2>Data Transaksi</h2>
 
        <table class="table table-striped">
            <thead>

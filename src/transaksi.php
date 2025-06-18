@@ -18,7 +18,7 @@ $pelangganr = $conn->query("SELECT id_pelanggan, nama FROM pelanggan");
 </head>
 <body>
 <div class="container mt-4">
-   <h2>Buat Pinjaman Baru</h2>
+   <h2>Buat Pinjaman</h2>
    <?php if (isset($_GET['message'])): ?>
        <div class="alert alert-info"><?= htmlspecialchars($_GET['message']) ?></div>
    <?php endif; ?>
@@ -28,7 +28,7 @@ $pelangganr = $conn->query("SELECT id_pelanggan, nama FROM pelanggan");
        <div class="mb-3">
            <label for="pelanggan_id" class="form-label">Pilih Pelanggan</label>
            <select class="form-select" name="pelanggan_id" id="pelanggan_id" required>
-               <option value="">Pilih Pelanggan</option>
+               <option value="">Pilih</option>
                <?php while ($row = $pelangganr->fetch_assoc()): ?>
                     <option value="<?= $row['id_pelanggan'] ?>"><?= $row['nama'] ?></option>
                <?php endwhile; ?>
@@ -36,7 +36,7 @@ $pelangganr = $conn->query("SELECT id_pelanggan, nama FROM pelanggan");
        </div>
 
 
-       <h3>Daftar Motor</h3>
+       <h3>Pilih Motor</h3>
        <div class="mb-3">
            <label for="id_motor" class="form-label">Pilih Motor</label>
            <select class="form-select" name="motor[1][id]" id="id_motor" required>

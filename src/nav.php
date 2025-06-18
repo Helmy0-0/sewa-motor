@@ -14,10 +14,10 @@
                     <a class="nav-link" href="daftar_pelanggan.php">Data Pelanggan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="transaksi.php">Tambah Transaksi</a>
+                    <a class="nav-link" href="lihat_transaksi.php">Data Transaksi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="lihat_transaksi.php">Data Transaksi</a>
+                    <a class="nav-link" href="transaksi.php">Tambah Transaksi</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="tambah_motor.php">Tambah Motor</a>

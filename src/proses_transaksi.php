@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
            }
 
            $stmt = $conn->prepare("INSERT INTO detailpinjam (id_pinjaman, id_motor, status, hargapinjam) VALUES (?, ?, ?, ?)");
-           $stmt->bind_param("iiid", $id_pinjaman, $id_motor, $status, $hargapinjam);
+           $stmt->bind_param("iisd", $id_pinjaman, $id_motor, $status, $hargapinjam);
            $stmt->execute();
            
            $harga += $hargapinjam;

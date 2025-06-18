@@ -72,7 +72,7 @@ $motor = $result->fetch_assoc();
             <div class="mb-3">
                 <label class="form-label">Gambar Saat Ini</label><br>
                 <?php if (!empty($motor['gambar'])): ?>
-                    <img src="/public/<?php echo htmlspecialchars($motor['gambar']) ?>" alt="Gambar Motor" width="120">
+                    <img src="./public/<?php echo htmlspecialchars($motor['gambar']) ?>" alt="Gambar Motor" width="120">
                 <?php else: ?>
                     <span class="text-muted">Tidak ada gambar</span>
                 <?php endif; ?>

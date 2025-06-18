@@ -13,17 +13,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die('Input tidak lengkap atau file tidak ada');
     }
 
-    // Path simpan di folder 'public/uploads'
-    $uploadDir = __DIR__ . '/public/uploads/';
-    $relativePath = 'public/uploads/'; 
+    $uploadDir = __DIR__ . '/public/uploads/';   // benar: /var/www/html/public/uploads/
+
+    $relativePath = 'uploads/';                  // nanti dipakai di <img src="/uploads/…">
+
 
 
     // Nama file unik
     $filename = uniqid() . '-' . basename($_FILES['file']['name']);
-    $targetFile = $uploadDir . $filename;
+    $targetFile = "{$uploadDir}{$filename}";
 
     if (move_uploaded_file($_FILES['file']['tmp_name'], $targetFile)) {
-        $gambarUrl = $relativePath . $filename;
+        $gambarUrl = "{$relativePath}{$filename}";
     } else {
         die('Gagal menyimpan file gambar.');
     }
@@ -35,8 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->execute()) {
         echo "<script>alert('Data berhasil ditambahkan'); window.location='tambah_motor.php';</script>";
     } else {
-        echo "<script>alert('Gagal menambahkan data: " . $stmt->error . "'); window.location='tambah_motor.php';</script>";
+        echo "<script>alert('Gagal menambahkan data: {$stmt->error}'); window.location='tambah_motor.php';</script>";
     }
 }
 $conn->close();
-?>

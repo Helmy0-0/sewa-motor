@@ -25,20 +25,14 @@ $harga = ($_POST['harga'] === '' || !isset($_POST['harga']))
 $gambarUrl = $old['gambar'];
 
 // Upload file hanya jika ada gambar baru
-// Upload file hanya jika ada gambar baru
 if (isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
-    // ➜ Path absolut ke folder uploads
-    $uploadDir     = dirname(__DIR__) . '/public/uploads/';
-    $relativePath  = 'uploads/';      // ➜ yang disimpan di kolom `gambar`
 
-    // Pastikan folder ada
-    if (!is_dir($uploadDir)) {
-        mkdir($uploadDir, 0755, true);
-    }
+    $uploadDir = __DIR__ . '/public/uploads/';   
+    $relativePath = 'uploads/';                  
 
     // Nama file unik
-    $filename    = uniqid() . '-' . basename($_FILES['file']['name']);
-    $targetFile  = $uploadDir . $filename;
+    $filename = uniqid() . '-' . basename($_FILES['file']['name']);
+    $targetFile = $uploadDir . $filename;
 
     // Simpan file
     if (move_uploaded_file($_FILES['file']['tmp_name'], $targetFile)) {

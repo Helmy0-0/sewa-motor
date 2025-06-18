@@ -1,24 +1,20 @@
 <?php
 include 'connect.php';
-$env = parse_ini_file(__DIR__ . '/.env');
-
 
 $id_motor = isset($_POST['id_motor']) ? intval($_POST['id_motor']) : 0;
 
-//ambil data lama
+// Ambil data lama
 $stmt = $conn->prepare("SELECT * FROM motor WHERE id_motor = ?");
 $stmt->bind_param("i", $id_motor);
 $stmt->execute();
 $result = $stmt->get_result();
 
-// Cek apakah data ditemukan
 if ($result->num_rows === 0) {
     die('Data motor tidak ditemukan');
 }
-// masukan data lama ke var old
 $old = $result->fetch_assoc();
 
-//validasi input 
+// Validasi input
 $nama_motor = $_POST['nama_motor'] ?? '';
 $merek = $_POST['merek'] ?? '';
 $tipe = $_POST['tipe'] ?? '';
@@ -28,50 +24,35 @@ $harga = ($_POST['harga'] === '' || !isset($_POST['harga']))
     : floatval($_POST['harga']);
 $gambarUrl = $old['gambar'];
 
-// Upload file hanya jika user pilih baru
+// Upload file hanya jika ada gambar baru
+// Upload file hanya jika ada gambar baru
 if (isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
+    // ➜ Path absolut ke folder uploads
+    $uploadDir     = dirname(__DIR__) . '/public/uploads/';
+    $relativePath  = 'uploads/';      // ➜ yang disimpan di kolom `gambar`
 
-    $apiBase = $env['API_URL'] ?? '';
-    $apiKey = $env['API_KEY'] ?? '';
-    if (!$apiBase || !$apiKey) {
-        die('API_URL / API_KEY belum di‑set');
+    // Pastikan folder ada
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0755, true);
     }
 
-    $uploadUrl = rtrim($apiBase, '/') . '/files/upload';
+    // Nama file unik
+    $filename    = uniqid() . '-' . basename($_FILES['file']['name']);
+    $targetFile  = $uploadDir . $filename;
 
-    //payload untuk upload
-    $cfile = new CURLFile(
-        $_FILES['file']['tmp_name'],
-        mime_content_type($_FILES['file']['tmp_name']),
-        $_FILES['file']['name']
-    );
-
-    $ch = curl_init($uploadUrl);
-    curl_setopt_array($ch, [
-        CURLOPT_POST => true,
-        CURLOPT_POSTFIELDS => ['file' => $cfile],
-        CURLOPT_HTTPHEADER => ["x-api-key: $apiKey"],
-        CURLOPT_RETURNTRANSFER => true,
-    ]);
-
-    $response = curl_exec($ch);
-    if ($response === false) {
-        die('Gagal mengunggah gambar: ' . curl_error($ch));
+    // Simpan file
+    if (move_uploaded_file($_FILES['file']['tmp_name'], $targetFile)) {
+        $gambarUrl = $relativePath . $filename;   // simpan ke DB
+    } else {
+        die('Gagal menyimpan file gambar.');
     }
-    curl_close($ch);
-
-    $json = json_decode($response, true);
-    if (json_last_error() !== JSON_ERROR_NONE || empty($json['path'])) {
-        die('Upload gambar gagal: ' . $response);
-    }
-    //ambil response path
-    $gambarUrl = rtrim($apiBase, '/') . '/' . ltrim($json['path'], '/');
 }
 
-//upload ke db
+
+// Update ke DB
 $update = $conn->prepare(
     "UPDATE motor
-       SET nama_motor = ?, merek = ?, tipe = ?, harga = ?, gambar = ?, status = ?
+     SET nama_motor = ?, merek = ?, tipe = ?, harga = ?, gambar = ?, status = ?
      WHERE id_motor = ?"
 );
 $update->bind_param(
@@ -90,5 +71,6 @@ if ($update->execute()) {
 } else {
     echo "<script>alert('Gagal memperbarui data: " . $update->error . "'); history.back();</script>";
 }
+
 $conn->close();
 ?>

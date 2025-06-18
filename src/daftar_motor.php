@@ -89,7 +89,7 @@ include 'nav.php';
                                     <td>Rp <?php echo number_format($row['harga'], 0, ',', '.') ?></td>
                                     <td>
                                         <?php if (!empty($row['gambar'])): ?>
-                                            <img src="<?php echo htmlspecialchars($row['gambar']) ?>" alt="Gambar Motor" class="motor-thumbnail">
+                                            <img src="/public/<?php echo htmlspecialchars($row['gambar']) ?>" alt="Gambar Motor" class="motor-thumbnail">
                                         <?php else: ?>
                                             <span class="text-muted">Tidak ada</span>
                                         <?php endif; ?>

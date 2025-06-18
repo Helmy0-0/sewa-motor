@@ -13,9 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die('Input tidak lengkap atau file tidak ada');
     }
 
-    $uploadDir = __DIR__ . '/public/uploads/';   // benar: /var/www/html/public/uploads/
-
-    $relativePath = 'uploads/';                  // nanti dipakai di <img src="/uploads/…">
+    $uploadDir = __DIR__ . '/public/uploads/';   
+    $relativePath = 'uploads/';                  
 
 
 
